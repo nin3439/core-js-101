@@ -32,9 +32,10 @@
  * @return {RegExp}
  */
 function getRegexForGuid() {
+  // const regex = /([A-Fa-f0-9])\w+/g;
+  // return /\{[A-Ha-h0-9]{8}-[A-Ha-h0-9]{4}-[A-Ha-h0-9]{4}-[A-Ha-h0-9]{4}-[A-Ha-h0-9]{12}\}/;
   throw new Error('Not implemented');
 }
-
 
 /**
  * Returns the regexp that matches all the strings from first column

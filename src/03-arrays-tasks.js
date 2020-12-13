@@ -36,6 +36,7 @@ function findElement(arr, value) {
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
 function generateOdds(/* len */) {
+  // const arr = new Array(len);
   throw new Error('Not implemented');
 }
 
@@ -233,12 +234,13 @@ function toArrayOfSquares(arr) {
  *   [ 0, 0, 0, 0, 0]         => [ 0, 0, 0, 0, 0]
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
-function getMovingSum(arr) {
-  const newArr = arr.map((item, index) => {
-    if (item[index] === 0) return item;
-    return item[index] + item[index - 1];
-  });
-  return newArr;
+function getMovingSum(/* arr */) {
+  // const newArr = arr.map((item, index) => {
+  //   if (item[index] === 0) return item;
+  //   return item[index] + item[index - 1];
+  // });
+  // return newArr;
+  throw new Error('Not implemented');
 }
 
 /**
@@ -252,8 +254,9 @@ function getMovingSum(arr) {
  * [ 'a', 'b', 'c' , null ]  => [ "b", null ]
  * [ "a" ] => []
  */
-function getSecondItems(arr) {
-  return arr.filter((item, index) => ((index % 2 !== 0) ? item : ''));
+function getSecondItems(/* arr */) {
+  // return arr.filter((item, index) => ((index % 2 !== 0) ? item : ''));
+  throw new Error('Not implemented');
 }
 
 
@@ -569,20 +572,21 @@ function getElementByIndexes(/* arr, indexes */) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8 ]   =>  [ 5, 6, 7, 8, 1, 2, 3, 4 ]
  *
  */
-function swapHeadAndTail(arr) {
-  const headArr = [];
-  const tailArr = [];
-  const middleArr = [];
-  arr.map((item, index) => {
-    if ((index < Math.floor(arr.length / 2))) {
-      return headArr.push(item);
-    }
-    if (index > Math.floor(arr.length / 2)) {
-      return tailArr.push(item);
-    }
-    return middleArr.push(item);
-  });
-  return tailArr.concat(middleArr, headArr);
+function swapHeadAndTail(/* arr */) {
+  // const headArr = [];
+  // const tailArr = [];
+  // const middleArr = [];
+  // arr.map((item, index) => {
+  //   if ((index < Math.floor(arr.length / 2))) {
+  //     return headArr.push(item);
+  //   }
+  //   if (index > Math.floor(arr.length / 2)) {
+  //     return tailArr.push(item);
+  //   }
+  //   return middleArr.push(item);
+  // });
+  // return tailArr.concat(middleArr, headArr);
+  throw new Error('Not implemented');
 }
 
 
