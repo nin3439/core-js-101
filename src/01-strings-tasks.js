@@ -224,6 +224,13 @@ function getRectangleString(/* width, height */) {
  *
  */
 function encodeToRot13(/* str */) {
+  // const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  // const chiferLetters = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
+  // const arr = [];
+  // for (let i = 0; i < str.length; i += 1) {
+
+  // }
+  // return arr.join('');
   throw new Error('Not implemented');
 }
 

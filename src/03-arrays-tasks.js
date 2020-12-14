@@ -237,11 +237,8 @@ function toArrayOfSquares(arr) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
 function getMovingSum(/* arr */) {
-  // const newArr = arr.map((item, index) => {
-  //   if (item[index] === 0) return item;
-  //   return item[index] + item[index - 1];
-  // });
-  // return newArr;
+  // const sumOfPreviousNumbers = ((sum) => (value) => sum += value)(0);
+  // return arr.map(sumOfPreviousNumbers);
   throw new Error('Not implemented');
 }
 
@@ -256,9 +253,8 @@ function getMovingSum(/* arr */) {
  * [ 'a', 'b', 'c' , null ]  => [ "b", null ]
  * [ "a" ] => []
  */
-function getSecondItems(/* arr */) {
-  // return arr.filter((item, index) => ((index % 2 !== 0) ? item : ''));
-  throw new Error('Not implemented');
+function getSecondItems(arr) {
+  return arr.filter((item, index) => (index % 2 !== 0));
 }
 
 
@@ -276,8 +272,12 @@ function getSecondItems(/* arr */) {
  *  [ 'a', 'b', 'c', null ] => [ 'a', 'b','b', 'c','c','c',  null,null,null,null ]
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
-function propagateItemsByPositionIndex(/* arr */) {
-  throw new Error('Not implemented');
+function propagateItemsByPositionIndex(arr) {
+  if (arr.length < 2) return arr;
+  return arr.reduce((acc, item, index) => {
+    acc.push(...Array(index + 1).fill(item));
+    return acc;
+  }, []);
 }
 
 
@@ -427,6 +427,13 @@ function toStringList(arr) {
  *    ]
  */
 function sortCitiesArray(/* arr */) {
+  // return arr.sort((a, b) => {
+  //   let countryA = a.country.toLowerCase();
+  //   let countryB = b.country.toLowerCase();
+  //   if (countryA < countryB) return -1;
+  //   if (countryA > countryB) return 1;
+  //   return 0;
+  // });
   throw new Error('Not implemented');
 }
 
