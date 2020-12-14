@@ -172,17 +172,19 @@ function isInsideCircle(circle, point) {
  *   'abracadabra'  => 'c'
  *   'entente' => null
  */
-function findFirstSingleChar(/* str */) {
-  // let firstNonRepeatedChar;
-  // for (let i = 0; i < str.length; i += 1) {
-  //   if (str.replace(str[i], '').length < 2) {
-  //     firstNonRepeatedChar = str[i];
-  //   } else {
-  //     return null;
-  //   }
-  // }
-  // return firstNonRepeatedChar;
-  throw new Error('Not implemented');
+function findFirstSingleChar(str) {
+  const splitString = str.split('');
+  const obj = {};
+  for (let i = 0; i < splitString.length; i += 1) {
+    if (obj[splitString[i]]) {
+      obj[splitString[i]] += 1;
+    } else {
+      obj[splitString[i]] = 1;
+    }
+  }
+  const arrFromObject = Object.entries(obj);
+  const sortArr = arrFromObject.sort((a, b) => a[1] - b[1]).flat();
+  return (sortArr.includes(1) ? sortArr[0] : null);
 }
 
 
@@ -208,8 +210,20 @@ function findFirstSingleChar(/* str */) {
  *   5, 3, true, true   => '[3, 5]'
  *
  */
-function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
-  throw new Error('Not implemented');
+function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
+  let openBracket;
+  let closeBracket;
+  if (isStartIncluded) {
+    openBracket = '[';
+  } else {
+    openBracket = '(';
+  }
+  if (isEndIncluded) {
+    closeBracket = ']';
+  } else {
+    closeBracket = ')';
+  }
+  return `${openBracket}${a > b ? `${b}, ${a}` : `${a}, ${b}`}${closeBracket}`;
 }
 
 
@@ -269,23 +283,18 @@ function reverseInteger(num) {
  */
 function isCreditCardNumber(/* ccn */) {
   // let sum = 0;
-
-  // for (let i = 0; i < ccn.length; i += 1) {
+  // for (let i = ccn.length - 1; i > 0; i -= 1) {
   //   let cardNum = parseInt(ccn[i], 10);
-
-  //   if ((ccn.length - i) % 2 === 0) {
+  //   if (i % 2 !== 0) {
   //     cardNum *= 2;
-
   //     if (cardNum > 9) {
   //       cardNum -= 9;
   //     }
   //   }
-
   //   sum += cardNum;
   // }
-
   // return sum % 10 === 0;
-  // let sum = 0;
+  // // let sum = 0;
   // for (let i = 0; i < ccn.length; i += 1) {
   //   let ccnOneNum = parseInt(ccn[i], 10);
   //   if ((ccn.length - 1) % 2 === 0) {

@@ -35,9 +35,10 @@ function findElement(arr, value) {
  *    2 => [ 1, 3 ]
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
-function generateOdds(/* len */) {
-  // const arr = new Array(len);
-  throw new Error('Not implemented');
+function generateOdds(len) {
+  const oddArr = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31];
+  const oddArrLen = oddArr.slice(0, len);
+  return oddArrLen;
 }
 
 
@@ -201,6 +202,7 @@ function getTail(arr, n) {
  *    +'30,31,32,33,34'
  */
 function toCsvText(/* arr */) {
+  // return arr.map((item) => `${item.join(',')}\n`);
   throw new Error('Not implemented');
 }
 
@@ -463,8 +465,20 @@ function getIdentityMatrix(/* n */) {
  *     0, 100 => [ 0, 1, 2, ..., 100 ]
  *     3, 3   => [ 3 ]
  */
-function getIntervalArray(/* start, end */) {
-  throw new Error('Not implemented');
+function getIntervalArray(start, end) {
+  const arr = new Array(end + 1 - start).fill();
+  let number = start;
+  const newArr = arr.map((item, index) => {
+    let el = item;
+    if (index === 0) {
+      el = number;
+    } else {
+      number += 1;
+      el = number;
+    }
+    return el;
+  });
+  return newArr;
 }
 
 /**
@@ -572,21 +586,20 @@ function getElementByIndexes(/* arr, indexes */) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8 ]   =>  [ 5, 6, 7, 8, 1, 2, 3, 4 ]
  *
  */
-function swapHeadAndTail(/* arr */) {
-  // const headArr = [];
-  // const tailArr = [];
-  // const middleArr = [];
-  // arr.map((item, index) => {
-  //   if ((index < Math.floor(arr.length / 2))) {
-  //     return headArr.push(item);
-  //   }
-  //   if (index > Math.floor(arr.length / 2)) {
-  //     return tailArr.push(item);
-  //   }
-  //   return middleArr.push(item);
-  // });
-  // return tailArr.concat(middleArr, headArr);
-  throw new Error('Not implemented');
+function swapHeadAndTail(arr) {
+  const headArr = [];
+  const tailArr = [];
+  const middleArr = [];
+  arr.map((item, index) => {
+    if ((index < ((arr.length - 1) / 2))) {
+      return headArr.push(item);
+    }
+    if (index > ((arr.length - 1) / 2)) {
+      return tailArr.push(item);
+    }
+    return middleArr.push(item);
+  });
+  return tailArr.concat(middleArr, headArr);
 }
 
 
