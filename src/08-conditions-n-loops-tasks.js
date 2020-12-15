@@ -125,8 +125,12 @@ function isTriangle(a, b, c) {
  *   { top:20, left:20, width: 20, height: 20 }    =>  false
  *
  */
-function doRectanglesOverlap(/* rect1, rect2 */) {
-  throw new Error('Not implemented');
+function doRectanglesOverlap(r1, r2) {
+  const left = r1.left + r1.width < r2.left;
+  const right = r1.left > r2.left + r2.width;
+  const top = r1.top + r1.height < r2.top;
+  const bottom = r1.top > r2.top + r2.height;
+  return !(left || top || right || bottom);
 }
 
 
@@ -338,8 +342,16 @@ function getDigitalRoot(num) {
  *   '{)' = false
  *   '{[(<{[]}>)]}' = true
  */
-function isBracketsBalanced(/* str */) {
-  throw new Error('Not implemented');
+function isBracketsBalanced(str) {
+  let newStr = str;
+  const TEMPLATE = ['[]', '()', '{}', '<>'];
+  for (let i = 0; i < TEMPLATE.length; i += 1) {
+    if (newStr.includes(TEMPLATE[i])) {
+      newStr = newStr.replace(TEMPLATE[i], '');
+      i = -1;
+    }
+  }
+  return newStr.length === 0;
 }
 
 
@@ -363,8 +375,14 @@ function isBracketsBalanced(/* str */) {
  *    365, 4  => '11231'
  *    365, 10 => '365'
  */
-function toNaryString(/* num, n */) {
-  throw new Error('Not implemented');
+function toNaryString(num, n) {
+  let newNum = num;
+  let str = '';
+  while (newNum >= 1) {
+    str += newNum % n;
+    newNum = Math.trunc(newNum / n);
+  }
+  return str.split('').reverse().join('');
 }
 
 
